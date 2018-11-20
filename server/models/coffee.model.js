@@ -25,7 +25,7 @@ Coffee.prototype.getIngredients = function () {
   return this.ingredients.join(', ');
 };
 
-Coffee.beforeValidate(coffee =>{
+Coffee.beforeValidate(coffee => {
   if (!coffee.ingredients) {
     coffee.ingredients = ['love'];
   } else if (!coffee.ingredients.includes('love')){
