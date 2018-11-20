@@ -19,7 +19,9 @@ router.get('/:coffeeId', async (req, res, next) => {
     const requestedCoffee = await Coffee.findById(coffeeId);
 
     if (!requestedCoffee) {
-      res.status(404).send();
+      let err = new Error();
+      err.status = 404;
+      throw err;
     } else {
       res.status(200).send(requestedCoffee);
     }
