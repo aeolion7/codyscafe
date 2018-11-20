@@ -24,9 +24,25 @@ const flattenDeep = (arr, flattenedArr = []) => {
   }
 };
 
-const flipArguments = func => {};
+const flipArguments = func => {
+  return function () {
+    const flippedArguments = Array.from(arguments).reverse();
+    return func(...flippedArguments);
+  };
+};
 
-const invert = obj => {};
+const invert = obj => {
+  const invertedObj = {};
+
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      let value = obj[key];
+      invertedObj[value] = key;
+    }
+  }
+
+  return invertedObj;
+};
 
 const camelCase = str => {};
 
