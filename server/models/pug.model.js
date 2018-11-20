@@ -10,11 +10,24 @@ const Pug = db.define('pugs', {
   },
   age: {
     type: Sequelize.INTEGER,
-    defaultValue: 0
+    defaultValue: 0,
   },
   biography: {
-    type: Sequelize.TEXT
-  }
+    type: Sequelize.TEXT,
+  },
 });
+
+Pug.prototype.isPuppy = function () {
+  return this.age < 1;
+};
+
+Pug.prototype.shortBio = function () {
+  let delimiter;
+  if (this.biography.indexOf('?') !== -1) delimiter = '?';
+  else if (this.biography.indexOf('!') !== -1) delimiter = '!';
+  else delimiter = '.';
+
+  return this.biography.split(delimiter)[0];
+};
 
 module.exports = Pug;
