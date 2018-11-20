@@ -1,27 +1,17 @@
-const intersection = (arr1, arr2) => {
+const intersection = (arr1, arr2) => {};
 
-}
+const flattenDeep = arr => {};
 
-const flattenDeep = (arr) => {
+const flipArguments = func => {};
 
-}
+const invert = obj => {};
 
-const flipArguments = (func) => {
-
-}
-
-const invert = (obj) => {
-
-}
-
-const camelCase = (str) => {
-
-}
+const camelCase = str => {};
 
 module.exports = {
   intersection,
   flattenDeep,
   flipArguments,
   invert,
-  camelCase
-}
+  camelCase,
+};
