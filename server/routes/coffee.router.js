@@ -6,29 +6,44 @@ const { Coffee } = require('../models');
 // /api/coffee!
 
 router.get('/', async (req, res, next) => {
-  res.status(200).send(await Coffee.findAll());
+  try {
+    res.status(200).send(await Coffee.findAll());
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.get('/:coffeeId', async (req, res, next) => {
-  const coffeeId = req.params.coffeeId;
-  const requestedCoffee = await Coffee.findById(coffeeId);
+  try {
+    const coffeeId = req.params.coffeeId;
+    const requestedCoffee = await Coffee.findById(coffeeId);
 
-  if (!requestedCoffee) {
-    res.status(404).send();
-  } else {
-    res.status(200).send(requestedCoffee);
+    if (!requestedCoffee) {
+      res.status(404).send();
+    } else {
+      res.status(200).send(requestedCoffee);
+    }
+  } catch (error) {
+    next(error);
   }
 });
 
 router.get('/ingredients/:ingredientName', async (req, res, next) => {
-  const ingredientName = req.params.ingredientName;
-  res.status(200).send(await Coffee.findByIngredient(ingredientName));
+  try {
+    const ingredientName = req.params.ingredientName;
+    res.status(200).send(await Coffee.findByIngredient(ingredientName));
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.post('/', async (req, res, next) => {
-  const newCoffee = await Coffee.create(req.body);
-
-  res.status(201).send(newCoffee);
+  try {
+    const newCoffee = await Coffee.create(req.body);
+    res.status(201).send(newCoffee);
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = router;
