@@ -25,7 +25,7 @@ const flattenDeep = (arr, flattenedArr = []) => {
 };
 
 const flipArguments = func => {
-  return function () {
+  return function() {
     const flippedArguments = Array.from(arguments).reverse();
     return func(...flippedArguments);
   };
@@ -44,7 +44,29 @@ const invert = obj => {
   return invertedObj;
 };
 
-const camelCase = str => {};
+const camelCase = str => {
+  let resultStr = '';
+  let upperNextChar = false;
+
+  for (let i = 0; i < str.length; i++) {
+    let thisChar = str.charAt(i);
+
+    if (thisChar === ' ' || thisChar === '_') {
+      if (resultStr.length) upperNextChar = true;
+      continue;
+    } else if (!resultStr.length) {
+      resultStr += thisChar.toLowerCase();
+    } else if (upperNextChar) {
+      resultStr += thisChar.toUpperCase();
+      upperNextChar = false;
+    } else {
+      resultStr += thisChar;
+      upperNextChar = false;
+    }
+  }
+
+  return resultStr;
+};
 
 module.exports = {
   intersection,

@@ -153,7 +153,7 @@ describe('Funky functions', () => {
     });
   }); // end: invert
 
-  xdescribe('camelCase', () => {
+  describe('camelCase', () => {
     // camelCase
     // converts input string to camelCase
     // Based on: https://lodash.com/docs/4.17.5#camelCase
