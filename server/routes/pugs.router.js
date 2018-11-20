@@ -5,4 +5,4 @@ const {Pug} = require('../models')
 // Remember that these routes are already mounted on
 // /api/pugs!
 
-module.exports = router
+module.exports = router;
