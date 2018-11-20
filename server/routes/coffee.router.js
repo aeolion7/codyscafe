@@ -1,5 +1,5 @@
-const router = require('express').Router()
-const {Coffee} = require('../models')
+const router = require('express').Router();
+const { Coffee } = require('../models');
 
 // Your code here!
 // Remember that these routes are already mounted on
@@ -31,4 +31,4 @@ router.post('/', async (req, res, next) => {
   res.status(201).send(newCoffee);
 });
 
-module.exports = router
+module.exports = router;
