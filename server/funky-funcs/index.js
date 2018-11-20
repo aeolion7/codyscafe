@@ -25,7 +25,7 @@ const flattenDeep = (arr, flattenedArr = []) => {
 };
 
 const flipArguments = func => {
-  return function() {
+  return function () {
     const flippedArguments = Array.from(arguments).reverse();
     return func(...flippedArguments);
   };
