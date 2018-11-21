@@ -50,6 +50,7 @@ router.put('/:pugId', async (req, res, next) => {
   try {
     const pugId = req.params.pugId;
     const thisPug = await Pug.findById(pugId);
+
     if (!thisPug) {
       res.status(404).send();
     } else {
