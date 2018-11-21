@@ -34,6 +34,7 @@ Pug.prototype.isPuppy = function () {
 };
 
 Pug.prototype.shortBio = function () {
+  // can be refactored using regex
   let delimiter;
   if (this.biography.indexOf('?') !== -1) delimiter = '?';
   else if (this.biography.indexOf('!') !== -1) delimiter = '!';
